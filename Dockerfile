@@ -5,6 +5,11 @@ FROM node:20-bookworm-slim
 COPY . /metrics
 WORKDIR /metrics
 
+# Environment variables
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_BROWSER_PATH="google-chrome-stable"
+ENV PUPPETEER_DOWNLOAD_BASE_URL=https://storage.googleapis.com/chrome-for-testing-public
+
 # Setup
 RUN chmod +x /metrics/source/app/action/index.mjs \
   # Install latest chrome dev package, fonts to support major charsets and skip chromium download on puppeteer install
@@ -29,9 +34,5 @@ RUN chmod +x /metrics/source/app/action/index.mjs \
   && npm ci \
   && npm run build
 
-# Environment variables
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-ENV PUPPETEER_BROWSER_PATH "google-chrome-stable"
-
 # Execute GitHub action
-ENTRYPOINT node /metrics/source/app/action/index.mjs
+ENTRYPOINT ["node", "/metrics/source/app/action/index.mjs"]
