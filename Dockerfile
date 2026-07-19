@@ -7,7 +7,7 @@ WORKDIR /metrics
 
 # Environment variables
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_BROWSER_PATH="google-chrome-stable"
+ENV PUPPETEER_BROWSER_PATH="/usr/bin/google-chrome-stable"
 ENV PUPPETEER_DOWNLOAD_BASE_URL=https://storage.googleapis.com/chrome-for-testing-public
 
 # Setup
