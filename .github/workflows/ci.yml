@@ -51,9 +51,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Pull changes
         run: |
           git checkout master
@@ -74,9 +74,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Pull
         run: git pull
       - name: Checkout main
@@ -207,9 +207,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Setup metrics
         run: npm ci
       - name: Pull
@@ -258,9 +258,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Setup NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Setup metrics
         run: npm ci
       - name: Publish release
